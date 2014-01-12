@@ -1,0 +1,30 @@
+{
+  "name": "key-del",
+  "version": "0.0.2",
+  "description": "Delete nested Javascript object key",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -u tdd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/avrora/key-del.git"
+  },
+  "keywords": [
+    "delete",
+    "remove",
+    "object",
+    "key",
+    "attribute",
+    "json"
+  ],
+  "author": "Andrei Karpushonak",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "4713f2d21a0efdc3372744e0e1b74c2a60772d74",
+  "dependencies": {
+    "mocha": "~1.17.0",
+    "should": "~2.1.1",
+    "lodash": "~2.4.1"
+  }
+}
