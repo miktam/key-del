@@ -1,4 +1,4 @@
-# Delete nested keys from Javascript object
+# Delete keys from Javascript object
 
 
 [![NPM](https://nodei.co/npm/key-del.png?downloads=true&stars=true)](https://nodei.co/npm/key-del/)
@@ -14,9 +14,7 @@
 
 `npm install key-del`
 
-# Examples
-
-### Basic example
+## Examples
 
 ```javascript
 var deleteKey = require('key-del')
