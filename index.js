@@ -6,7 +6,7 @@ var deleteKeysFromObject = function (object, keys) {
   var keysToDelete;
 
   // do not modify original object
-  var finalObject = _.clone(object, isDeep = true)
+  var finalObject = _.clone(object)
 
   if (typeof finalObject === 'undefined') throw new Error('undefined is not a valid object.')
   if (arguments.length != 2) throw new Error("provide two parameters: object and list of keys")
