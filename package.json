@@ -1,6 +1,6 @@
 {
   "name": "key-del",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Delete nested Javascript object key",
   "main": "index.js",
   "scripts": {
