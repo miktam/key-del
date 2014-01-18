@@ -1,7 +1,7 @@
 {
   "name": "key-del",
-  "version": "0.0.5",
-  "description": "Delete nested Javascript object key",
+  "version": "0.0.6",
+  "description": "Delete nested keys from Javascript object, JSON",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha -u tdd"
@@ -16,15 +16,17 @@
     "object",
     "key",
     "attribute",
-    "json"
+    "nested"
   ],
   "author": "Andrei Karpushonak",
   "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "4713f2d21a0efdc3372744e0e1b74c2a60772d74",
   "dependencies": {
-    "mocha": "~1.17.0",
-    "should": "~2.1.1",
     "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.0",
+    "should": "~2.1.1"
   }
 }

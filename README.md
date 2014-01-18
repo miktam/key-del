@@ -5,8 +5,10 @@
 
 
 ## Assumptions
-
-* original object shall not be modified, only the result of the invocation
+* takes two parameters (object, and keys to delete)
+* second parameter (keys to delete) could be string for single key, or array of strings (for multiple keys)
+* original object shall not be modified
+* modified object is returned as a result of the invocation
 * nested keys shall be deleted as well
 
 
@@ -28,8 +30,9 @@ var originalObject = {
 	}
 }
 
+console.log(originalObject) // { one: 1, two: 2, three: { nestedOne: 3, nestedTwo: 4 } }
+
 var result = deleteKey(originalObject, ['one', 'nestedOne'])
 
-console.log(result)
-// {two: 2, three: {nestedTwo: 4}}
+console.log(result) // {two: 2, three: {nestedTwo: 4}}
 ```
