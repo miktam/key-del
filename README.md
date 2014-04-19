@@ -1,16 +1,17 @@
-# Delete keys from Javascript object
+# Delete (nested) keys from JSON object
 
 
 [![NPM](https://nodei.co/npm/key-del.png?downloads=true&stars=true)](https://nodei.co/npm/key-del/)
 
 
 ## Assumptions
-* takes two parameters (object, and keys to delete)
-* second parameter (keys to delete) could be string for single key, or array of strings (for multiple keys)
 * original object shall not be modified
 * modified object is returned as a result of the invocation
 * nested keys shall be deleted as well
 
+## Usage
+* takes two parameters (object, and keys to delete)
+* second parameter (keys to delete) could be string for single key, or array of strings (for multiple keys)
 
 ## Installation
 
