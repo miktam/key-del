@@ -39,3 +39,9 @@ var result = deleteKey(originalObject, ['one', 'nestedOne'])
 console.log(result)
 // {two: 2, three: {nestedTwo: 4}}
 ```
+
+## Licence
+
+The MIT License (MIT)
+
+Copyright (c) 2014, Andrei Karpushonak aka @miktam, http://avrora.io
