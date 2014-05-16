@@ -1,4 +1,6 @@
-# Delete (nested) keys from JSON object [![Build Status](https://travis-ci.org/avrora/key-del.svg?branch=master)](https://travis-ci.org/avrora/key-del) [![Dependency Status](https://david-dm.org/avrora/key-del.svg)](https://david-dm.org/avrora/key-del)
+# Delete (nested) keys from JSON object 
+
+[![Build Status](https://travis-ci.org/avrora/key-del.svg?branch=master)](https://travis-ci.org/avrora/key-del) [![Dependency Status](https://david-dm.org/avrora/key-del.svg)](https://david-dm.org/avrora/key-del)
 
 [![NPM](https://nodei.co/npm/key-del.png?downloads=true&stars=true)](https://nodei.co/npm/key-del/)
 
