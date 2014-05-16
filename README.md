@@ -1,12 +1,10 @@
-# Delete (nested) keys from JSON object [![Build Status](https://travis-ci.org/avrora/key-del.svg?branch=master)](https://travis-ci.org/avrora/key-del)
-
+# Delete (nested) keys from JSON object [![Build Status](https://travis-ci.org/avrora/key-del.svg?branch=master)](https://travis-ci.org/avrora/key-del) [![Dependency Status](https://david-dm.org/avrora/key-del.svg)](https://david-dm.org/avrora/key-del)
 
 [![NPM](https://nodei.co/npm/key-del.png?downloads=true&stars=true)](https://nodei.co/npm/key-del/)
 
-
 ## Assumptions
 * original object shall not be modified
-* modified object is returned as a result of the invocation
+* modified object is returned
 * nested keys shall be deleted as well
 
 ## Usage

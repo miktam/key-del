@@ -1,10 +1,10 @@
 {
   "name": "key-del",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Delete (nested) keys from JSON object",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -u tdd"
+    "test": "./node_modules/.bin/mocha -R tap"
   },
   "repository": {
     "type": "git",
