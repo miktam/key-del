@@ -4,6 +4,8 @@
 
 [![NPM](https://nodei.co/npm/key-del.png?downloads=true&stars=true)](https://nodei.co/npm/key-del/)
 
+[![NPM](https://nodei.co/npm-dl/key-del.png)](https://nodei.co/npm-dl/key-del/)
+
 ## Assumptions
 * original object shall not be modified
 * modified object is returned
@@ -44,4 +46,4 @@ console.log(result)
 
 The MIT License (MIT)
 
-Copyright (c) 2014, Andrei Karpushonak aka @miktam, http://avrora.io
+Copyright (c) 2015, Andrei Karpushonak aka @miktam, http://avrora.io
