@@ -2,9 +2,10 @@
 
 /*global describe, it, before, beforeEach, after, afterEach */
 
-var assert = require("assert");
+var assert = require('assert');
 var should = require('should');
-var delKey = require("../index");
+var delKey = require('../index');
+var _      = require('lodash');
 
 describe('del-key', function() {
   it('shall check parameters', function() {
@@ -73,4 +74,21 @@ describe('del-key', function() {
     assert.equal(result.c.e.g, 8, 'key shall be kept');
   });
 
-})
+  it('shall handle deep copy', function() {
+
+    var objectToDeleteKeyFrom = [{ "one": "first", "two": "second"}];
+    var keyToDelete = ['does not exist'];
+    var deep = delKey(objectToDeleteKeyFrom, keyToDelete, {copy:true});
+    assert.equal(objectToDeleteKeyFrom[0] === deep[0], false, 'objects are cloned explicetely');
+    var deepByDefault = delKey(objectToDeleteKeyFrom, keyToDelete);
+    assert.equal(objectToDeleteKeyFrom[0] === deepByDefault[0], false, 'object are cloned by default');
+  });
+
+  it('shall handle shallow copy', function() {
+
+    var objectToDeleteKeyFrom = { "one": "first", "two": "second"};
+    var shallow = delKey(objectToDeleteKeyFrom, 'two', {copy:false});
+    assert.equal(objectToDeleteKeyFrom === shallow, true, 'should be the same object');
+  });
+
+});
