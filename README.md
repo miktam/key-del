@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/avrora/key-del.svg?branch=master)](https://travis-ci.org/avrora/key-del) [![Dependency Status](https://david-dm.org/avrora/key-del.svg)](https://david-dm.org/avrora/key-del)
 
-[![NPM](https://nodei.co/npm/key-del.png?downloads=true&stars=true)](https://nodei.co/npm/key-del/)
+[![NPM](https://nodei.co/npm/key-del.png?downloads=true&downloadRank=true)](https://nodei.co/npm/key-del/)
 
 [![NPM](https://nodei.co/npm-dl/key-del.png)](https://nodei.co/npm-dl/key-del/)
 
@@ -22,6 +22,7 @@
 ## Examples
 
 ```javascript
+
 var deleteKey = require('key-del')
 
 var originalObject = {
@@ -40,6 +41,14 @@ var result = deleteKey(originalObject, ['one', 'nestedOne'])
 
 console.log(result)
 // {two: 2, three: {nestedTwo: 4}}
+
+// if object should not be copied, set copy parameter to false (its true by default)
+var shallowAndDeleted = deleteKey(originalObject, ['one'], {copy: false});
+console.log(originalObject)
+// original object is modified
+// { one: 1, two: 2, three: { nestedOne: 3, nestedTwo: 4 } }
+
+
 ```
 
 ## Licence

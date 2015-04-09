@@ -1,6 +1,6 @@
 {
   "name": "key-del",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Delete (nested) keys from JSON object",
   "main": "index.js",
   "scripts": {
