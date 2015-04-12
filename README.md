@@ -7,7 +7,7 @@
 [![NPM](https://nodei.co/npm-dl/key-del.png)](https://nodei.co/npm-dl/key-del/)
 
 ## Assumptions
-* original object shall not be modified (unless {copy: true} is set)
+* original object shall not be modified by default
 * modified object is returned
 * nested keys shall be deleted as well
 
