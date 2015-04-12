@@ -7,7 +7,7 @@
 [![NPM](https://nodei.co/npm-dl/key-del.png)](https://nodei.co/npm-dl/key-del/)
 
 ## Assumptions
-* original object shall not be modified
+* original object shall not be modified (unless {copy: true} is set)
 * modified object is returned
 * nested keys shall be deleted as well
 
@@ -18,6 +18,14 @@
 ## Installation
 
 `npm install key-del`
+
+## Usage
+
+```javascript
+
+var deleteKey = require('key-del')
+var objWithoutOneAttribute = deleteKey({one: 1, two: 2}, "one")
+```
 
 ## Examples
 
@@ -34,20 +42,29 @@ var originalObject = {
 	}
 }
 
-console.log(originalObject)
-// { one: 1, two: 2, three: { nestedOne: 3, nestedTwo: 4 } }
-
 var result = deleteKey(originalObject, ['one', 'nestedOne'])
 
 console.log(result)
 // {two: 2, three: {nestedTwo: 4}}
 
-// if object should not be copied, set copy parameter to false (its true by default)
-var shallowAndDeleted = deleteKey(originalObject, ['one'], {copy: false});
+// Delete nested key by full path
+var objectToDeleteKeyFrom = { one: 1, two: 2, nested: {two: 2, three: 3}}
+var keyToDelete = 'nested.two'
+var result = delKey(objectToDeleteKeyFrom, keyToDelete)
+console.log(result)
+// { one: 1, two: 2, nested: {three: 3}}
+```
+
+## Options
+
+To delete attribue from the original object, set `copy` parameter to false (its true by default)
+
+```javascript
+
+deleteKey(originalObject, 'one', {copy: false})
 console.log(originalObject)
 // original object is modified
 // { one: 1, two: 2, three: { nestedOne: 3, nestedTwo: 4 } }
-
 
 ```
 

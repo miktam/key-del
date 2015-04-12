@@ -2,6 +2,7 @@
 
 "use strict";
 
+var DOT_SEPARATOR = ".";
 var _ = require('lodash');
 
 var deleteKeysFromObject = function (object, keys, options) {
@@ -43,7 +44,15 @@ var deleteKeysFromObject = function (object, keys, options) {
     for(var prop in finalObject) {
       if(finalObject.hasOwnProperty(prop)) {
         if (elem === prop) {
+          // simple key to delete
           delete finalObject[prop];
+        } else if (elem.indexOf(DOT_SEPARATOR) != -1) {
+          // dealing with nested key provided by full path
+          var parts = elem.split(DOT_SEPARATOR);
+          var pathWithoutLastEl = _.dropRight(parts, 1);
+          var lastAttribute = _.drop(parts, 1);
+          var nestedObjectRef = finalObject[pathWithoutLastEl];
+          delete nestedObjectRef[lastAttribute];
         } else {
           // check nested attributes, if it's an object, and not array (thank you, Javascript)
           if (_.isObject(finalObject[prop]) && !_.isArray(finalObject[prop])) {
@@ -51,6 +60,7 @@ var deleteKeysFromObject = function (object, keys, options) {
           }
         }
       }
+
     }
   });
 

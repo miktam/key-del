@@ -91,4 +91,15 @@ describe('del-key', function() {
     assert.equal(objectToDeleteKeyFrom === shallow, true, 'should be the same object');
   });
 
+  it('shall delete nested keys by full path', function() {
+    var objectToDeleteKeyFrom = { one: 1, two: 2, nested: {two: 2, three: 3}};
+    var keyToDelete = 'nested.two';
+    var result = delKey(objectToDeleteKeyFrom, keyToDelete);
+
+    assert.equal(result.one, 1, 'attribute one should be untouched');
+    assert.equal(result.two, 2, 'attribute three should be untouched');
+    assert.equal(result.nested.two, undefined, 'nested three should be deleted');
+    assert.equal(result.nested.three, 3, 'nested three should be untouched');
+  });
+
 });
