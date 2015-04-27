@@ -102,4 +102,35 @@ describe('del-key', function() {
     assert.equal(result.nested.three, 3, 'nested three should be untouched');
   });
 
+  it('shall delete nested keys by full path, including multi levels (up to 3)', function() {
+    var objectToDeleteKeyFrom = {
+      "data": {
+        "_id": "user1",
+        "images_folder": "54f084eecdf6a09017ffcd7d",
+        "local": true,
+        "settings": {
+          "moto": "Life is beautiful!",
+          "description": "Searching for Freedom and peace of mind...",
+          "display_name": "user1",
+          "official_image_type": "jpg",
+          "background_image_style": "cover",
+          "profile_searchable": true,
+          "background_image_type": "predefined",
+          "background_image": "/backgrounds/bg.png",
+          "profile_image_type": "predefined",
+          "profile_image": "/avatars/icon.png"
+        },
+        "profile": {"user_id": "user1", "name": "User", "surname": "1", "role": "test"},
+        "relationship": {"is_friend": false, "requested_by": "user2", "blocked_by_me": false, "blocked_by_other": false}
+      }, "meta": {"code": 200}
+    };
+
+    var keyToDelete = 'data.communities';
+    var keyToDelete2 = 'data.settings.official_image_type';
+    var result = delKey(objectToDeleteKeyFrom, [keyToDelete, keyToDelete2]);
+
+    assert.equal(result.data.communities, undefined, 'nested should be deleted');
+    assert.equal(result.data.settings.official_image_type, undefined, 'nested should be deleted');
+  });
+
 });

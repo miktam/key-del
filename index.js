@@ -51,8 +51,19 @@ var deleteKeysFromObject = function (object, keys, options) {
           var parts = elem.split(DOT_SEPARATOR);
           var pathWithoutLastEl = _.dropRight(parts, 1);
           var lastAttribute = _.drop(parts, 1);
-          var nestedObjectRef = finalObject[pathWithoutLastEl];
-          delete nestedObjectRef[lastAttribute];
+
+          if (parts && parts.length === 2) {
+            var nestedObjectRef = finalObject[pathWithoutLastEl];
+            delete nestedObjectRef[lastAttribute];
+          } else if (parts && parts.length === 3) {
+            // last attribute is the last part of the parts
+            lastAttribute = parts[2];
+            var deepestRef = (finalObject[parts[0]])[parts[1]];
+            delete deepestRef[lastAttribute];
+          } else {
+            throw new Error("Nested level " + parts.length + " is not supported yet");
+          }
+
         } else {
           // check nested attributes, if it's an object, and not array (thank you, Javascript)
           if (_.isObject(finalObject[prop]) && !_.isArray(finalObject[prop])) {
