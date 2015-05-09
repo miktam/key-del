@@ -47,14 +47,19 @@ var deleteKeysFromObject = function (object, keys, options) {
           // simple key to delete
           delete finalObject[prop];
         } else if (elem.indexOf(DOT_SEPARATOR) != -1) {
-          // dealing with nested key provided by full path
           var parts = elem.split(DOT_SEPARATOR);
-          var pathWithoutLastEl = _.dropRight(parts, 1);
-          var lastAttribute = _.drop(parts, 1);
+          var pathWithoutLastEl;
+
+          var lastAttribute;
 
           if (parts && parts.length === 2) {
+
+            lastAttribute = parts[1];
+            pathWithoutLastEl = parts[0];
             var nestedObjectRef = finalObject[pathWithoutLastEl];
-            delete nestedObjectRef[lastAttribute];
+            if (nestedObjectRef) {
+              delete nestedObjectRef[lastAttribute];
+            }
           } else if (parts && parts.length === 3) {
             // last attribute is the last part of the parts
             lastAttribute = parts[2];
@@ -65,8 +70,8 @@ var deleteKeysFromObject = function (object, keys, options) {
           }
 
         } else {
-          // check nested attributes, if it's an object, and not array (thank you, Javascript)
           if (_.isObject(finalObject[prop]) && !_.isArray(finalObject[prop])) {
+
             finalObject[prop] = deleteKeysFromObject(finalObject[prop], keysToDelete, options);
           }
         }

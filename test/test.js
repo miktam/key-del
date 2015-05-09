@@ -133,4 +133,27 @@ describe('del-key', function() {
     assert.equal(result.data.settings.official_image_type, undefined, 'nested should be deleted');
   });
 
+  it('shall delete nested keys by full path using array and different levels', function() {
+    var objectToDeleteKeyFrom = {
+      "data": {
+        "_id": "user1",
+        "images_folder": "54f084eecdf6a09017ffcd7d",
+        "local": true,
+        "settings": {
+          "moto": "Life is beautiful!",
+          "description": "Searching for Freedom and peace of mind...",
+          "display_name": "user1"
+        }
+      },
+      "meta": {"code": 200}
+    };
+
+    var keyToDelete = 'meta';
+    var keyToDelete2 = 'data.local';
+    var result = delKey(objectToDeleteKeyFrom, [keyToDelete, keyToDelete2]);
+
+    assert.equal(result.data.local, undefined, 'nested should be deleted');
+    assert.equal(result.meta, undefined, 'nested should be deleted');
+  });
+
 });
