@@ -1,6 +1,6 @@
 # Delete (nested) keys from JSON object 
 
-[![Build Status](https://travis-ci.org/avrora/key-del.svg?branch=master)](https://travis-ci.org/avrora/key-del) [![Dependency Status](https://david-dm.org/avrora/key-del.svg)](https://david-dm.org/avrora/key-del)
+[![Build Status](https://travis-ci.org/miktam/key-del.svg?branch=master)](https://travis-ci.org/miktam/key-del) [![Dependency Status](https://david-dm.org/miktam/key-del.svg)](https://david-dm.org/miktam/key-del)
 
 [![NPM](https://nodei.co/npm/key-del.png?downloads=true&downloadRank=true)](https://nodei.co/npm/key-del/)
 
@@ -72,4 +72,4 @@ console.log(originalObject)
 
 The MIT License (MIT)
 
-Copyright (c) 2015, Andrei Karpushonak aka @miktam, http://avrora.io
+Copyright (c) 2015, Andrei Karpushonak aka @miktam
