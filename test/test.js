@@ -156,4 +156,42 @@ describe('del-key', function() {
     assert.equal(result.meta, undefined, 'nested should be deleted');
   });
 
+  it('shall support nested arrays', function() {
+    var objectToDeleteKeyFrom = {
+      "keepThis": "abc",
+      "deleteKey": "bye",
+      "list": [{
+        "keepThis": "def",
+        "deleteNested": "bye",
+        "nestedList": [{
+          "shouldBeHere": "qwe",
+          "deleteSuperNested": "bye",
+        }]
+      }]
+    }
+
+    var result = delKey(objectToDeleteKeyFrom, ["deleteKey", "deleteNested", "deleteSuperNested"]);
+
+    // Check if nested attributes in arrays were deleted
+    assert.equal(result.deleteKey, undefined, 'deleteKey should be deleted');
+    assert.equal(result.list[0].deleteNested, undefined, 'list[0].deleteNested should be deleted');
+    assert.equal(result.list[0].nestedList[0].deleteSuperNested, undefined, 'list[0].nestedList[0].deleteSuperNested should be deleted');
+
+    // Check if anything else is still there
+    should.exist(result.keepThis);
+    result.keepThis.should.equal("abc");
+
+    should.exist(result.list);
+    result.list.should.instanceof(Array);
+
+    should.exist(result.list[0].keepThis);
+    result.list[0].keepThis.should.equal("def");
+
+    should.exist(result.list[0].nestedList);
+    result.list[0].nestedList.should.instanceof(Array);
+
+    should.exist(result.list[0].nestedList[0].shouldBeHere);
+    result.list[0].nestedList[0].shouldBeHere.should.equal("qwe");
+  });
+
 });
