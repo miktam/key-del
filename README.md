@@ -4,7 +4,6 @@
 
 [![NPM](https://nodei.co/npm/key-del.png?downloads=true&downloadRank=true)](https://nodei.co/npm/key-del/)
 
-[![NPM](https://nodei.co/npm-dl/key-del.png)](https://nodei.co/npm-dl/key-del/)
 
 ## Assumptions
 * original object shall not be modified by default
@@ -24,7 +23,7 @@
 ```javascript
 
 var deleteKey = require('key-del')
-var objWithoutOneAttribute = deleteKey({one: 1, two: 2}, "one")
+var objWithoutOneAttribute = deleteKey({one: 1, two: 2}, 'one')
 ```
 
 ## Examples
