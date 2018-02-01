@@ -70,9 +70,14 @@ var deleteKeysFromObject = function (object, keys, options) {
           }
 
         } else {
-          if (_.isObject(finalObject[prop]) && !_.isArray(finalObject[prop])) {
-
-            finalObject[prop] = deleteKeysFromObject(finalObject[prop], keysToDelete, options);
+          if (_.isObject(finalObject[prop])) {
+            if(_.isArray(finalObject[prop])) {
+              finalObject[prop] = _.map(finalObject[prop], function(obj) {
+                return deleteKeysFromObject(obj, keysToDelete, options);
+              });
+            } else {
+              finalObject[prop] = deleteKeysFromObject(finalObject[prop], keysToDelete, options);
+            }
           }
         }
       }
@@ -85,4 +90,3 @@ var deleteKeysFromObject = function (object, keys, options) {
 };
 
 module.exports = deleteKeysFromObject;
-
